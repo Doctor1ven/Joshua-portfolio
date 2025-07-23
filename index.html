@@ -8,15 +8,77 @@
     * {
       box-sizing: border-box;
     }
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4faff;
-      color: #333;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      background-color: #9fa382;
+      color: black;
+    }
+    .section-wrapper {
+      height: 100vh;
+      width: 100%;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+    }
+    .snap-section {
+      height: 100vh;
+      scroll-snap-align: start;
+    }
+    #landing {
+  background-color: ##7b7f65;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3rem;
+  text-align: center;
+}
+    .landing-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+    .landing-left h1 {
+      margin: 0;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    .landing-left .outlined {
+      background-color: #d6d6aa;
+      padding: 0.5rem 1.5rem;
+      margin: 1rem 0;
+    }
+    .landing-left .outlined h1 {
+      font-size: 3rem;
+      color: transparent;
+      -webkit-text-stroke: 2px black;
+      margin: 0;
+    }
+    .landing-left h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 2rem;
+    }
+    .landing-card {
+      width: 300px;
+      background-color: #7b7f65;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 1rem;
+    }
+    .landing-card img {
+      width: 100%;
+      height: auto;
     }
     header, footer {
-      background-color: #002244;
+      background-color: #7b7f65;
       color: white;
       padding: 1rem;
       text-align: center;
@@ -28,11 +90,11 @@
       padding: 2rem 1rem;
     }
     h1, h2 {
-      color: #002244;
+      color: black;
     }
     nav {
       text-align: center;
-      background-color: #e0efff;
+      background-color: #d6d6aa;
       padding: 1rem;
       display: flex;
       flex-wrap: wrap;
@@ -40,7 +102,7 @@
       gap: 0.5rem;
     }
     nav button {
-      background-color: #002244;
+      background-color: #7b7f65;
       color: white;
       border: none;
       padding: 0.5rem 1rem;
@@ -51,9 +113,12 @@
     }
     .section {
       display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
     }
     .section.active {
       display: block;
+      opacity: 1;
     }
     ul {
       list-style: none;
@@ -66,77 +131,121 @@
       margin: 0.3rem 0;
     }
     @media (max-width: 600px) {
-      nav button {
-        font-size: 0.9rem;
-        padding: 0.4rem;
+      #landing {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
+      .landing-left {
+        align-items: center;
+      }
+    }
+      .nav-button {
+      background-color: #7b7f65;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      min-width: 120px;
+      margin-top: 1rem;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1 style="color: white;">Joshua Webber</h1>
-    <p>BSc IT Student | Software Development & Cybersecurity Enthusiast</p>
-  </header>
-
-  <nav>
-    <button onclick="showTab('about')">About</button>
-    <button onclick="showTab('education')">Education</button>
-    <button onclick="showTab('experience')">Experience</button>
-    <button onclick="showTab('projects')">Projects</button>
-    <button onclick="showTab('skills')">Skills</button>
-  </nav>
-
-  <div class="container">
-    <section id="about" class="section active">
-      <h2>About Me</h2>
-      <p>Hi, I'm Joshua Webber — an aspiring BSc IT student at North West University. I'm passionate about software development and cybersecurity, and I'm always eager to learn new technologies to sharpen my skills and contribute to real-world projects.</p>
+  <div class="section-wrapper">
+    <!-- LANDING PAGE -->
+    <section id="landing" class="snap-section">
+      <div class="landing-left">
+        <h1>JOSHUA</h1>
+        <div class="outlined">
+          <h1>WEBBER</h1>
+        </div>
+        <h2>WELCOME TO MY PORTFOLIO</h2>
+        <button onclick="scrollToPortfolio()" class="nav-button">
+          CLICK HERE TO SEE MORE
+        </button>
+      </div>
     </section>
 
-    <section id="education" class="section">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>BSc Information Technology</strong> – North West University (2023 – Present)</li>
-        <li><strong>Matric</strong> – Emmanuel Private School (2010 – 2021)</li>
-      </ul>
-    </section>
+    <!-- MAIN PORTFOLIO CONTENT -->
+    <section id="mainContent" class="snap-section">
+      <header>
+        <h1>Joshua Webber</h1>
+        <p>BSc IT Student | Software Development & Cybersecurity Enthusiast</p>
+      </header>
 
-    <section id="experience" class="section">
-      <h2>Experience</h2>
-      <p><strong>Sales Assistant – Lemon Garage (2021 – Present)</strong></p>
-      <ul>
-        <li>Prepare vehicles for sale (roadworthiness, cleanliness, fuelling)</li>
-        <li>Assist customers through the sales process</li>
-        <li>Maintain filing systems (digital + physical)</li>
-        <li>Run errands (fetch cars, documents, etc.)</li>
-        <li>Collaborate with the sales team to improve efficiency</li>
-      </ul>
-    </section>
+      <nav>
+        <button onclick="showTab('about')">About</button>
+        <button onclick="showTab('education')">Education</button>
+        <button onclick="showTab('experience')">Experience</button>
+        <button onclick="showTab('projects')">Projects</button>
+        <button onclick="showTab('skills')">Skills</button>
+      </nav>
 
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Marks Viewing System (Java):</strong> Role-based system for managing and viewing marks (Student, Teacher, Admin).</li>
-        <li><strong>Animal Adoption Website (Java, Spring Boot, Postman):</strong> Backend APIs for pet adoption with student team.</li>
-        <li><strong>Office Network Simulation (Cisco Packet Tracer):</strong> Designed full office network with VLANs, DHCP, and dynamic routing.</li>
-      </ul>
-    </section>
+      <div class="container">
+        <section id="about" class="section active">
+          <div style="display: flex; align-items: flex-start; gap: 2rem;">
+            <div style="flex: 1;">
+              <p>Hi, I'm Joshua Webber, an aspiring IT student currently studying at North West University. I'm driven by a passion for technology and innovation, and I'm actively building a strong foundation in both software development and cybersecurity. My academic journey is fueled by a genuine curiosity to understand how systems work — from backend logic and APIs to network infrastructure and security mechanisms.</p>
+<p>Beyond coursework, I've collaborated with fellow students on real-world projects that enhanced my skills in Java, Spring Boot, and network design. I'm also continuously learning through platforms like GitHub and YouTube, and I enjoy solving technical problems, building useful applications, and experimenting with new frameworks and tools. My goal is to contribute meaningfully to modern software systems and to ensure the security and efficiency of digital platforms.</p>
+<p>Whether working on a network simulation or developing a full-stack web app, I believe in staying adaptable, solution-oriented, and committed to growth in this fast-evolving tech landscape.</p>
+            </div>
+            <img src="coverPhoto.PNG" alt="Joshua Webber" style="width: 150px; height: auto; border-radius: 8px;" />
+          </div>
+        </section>
 
-    <section id="skills" class="section">
-      <h2>Skills</h2>
-      <ul>
-        <li><strong>Languages:</strong> Python, Java, C++, C#, HTML/CSS, SQL</li>
-        <li><strong>Tools:</strong> Git, Postman, Linux, Oracle SQL Developer, Visual Studio Code</li>
-        <li><strong>Networking:</strong> IP Addressing, Subnetting, Routing (Cisco Packet Tracer)</li>
-        <li><strong>Other:</strong> Microsoft Office Suite, Canva</li>
-      </ul>
+        <section id="education" class="section">
+          <h2>Education</h2>
+          <ul>
+            <li><strong>BSc Information Technology</strong> – North West University (2023 – Present)</li>
+            <li><strong>Matric</strong> – Emmanuel Private School (2021)</li>
+          </ul>
+        </section>
+
+        <section id="experience" class="section">
+          <h2>Experience</h2>
+          <p><strong>Sales Assistant – Lemon Garage (2021 – Present)</strong></p>
+          <ul>
+            <li>Prepare vehicles for sale (roadworthiness, cleanliness, fuelling)</li>
+            <li>Assist customers through the sales process</li>
+            <li>Maintain filing systems (digital + physical)</li>
+            <li>Run errands (fetch cars, documents, etc.)</li>
+            <li>Collaborate with the sales team to improve efficiency</li>
+          </ul>
+        </section>
+
+        <section id="projects" class="section">
+          <h2>Projects</h2>
+          <ul>
+            <li><strong><a href="https://github.com/Doctor1ven/Academix" target="_blank" style="color: black; text-decoration: none;">Academix – Student Result Processing System (Java)</a>:</strong> A desktop application built using Core Java with JavaFX and SceneBuilder. It supports role-based access (student, lecturer, admin) and manages student results, course enrollments, user control, and encrypted password protection via AES and SHA-256.</li>
+            <li><strong><a href="https://github.com/clowiiza1/pawpal-backend" target="_blank" style="color: black; text-decoration: none;">PawPal – Full Stack Adoption Platform</a>:</strong> A full-stack application built with React.js, Tailwind.css, Spring Boot (Java), and MySQL, hosted using AWS Amplify, S3, and EC2. Includes secure frontend/backend integration, cloud deployment, and RESTful APIs.</li>
+            <li><strong><a href="https://github.com/clowiiza1/networkproject" target="_blank" style="color: black; text-decoration: none;">Enterprise Network Simulation (Cisco Packet Tracer)</a>:</strong> A complete enterprise network with segmented VLANs, DHCP, ACLs, SSH remote access, wireless and wired infrastructure, and simulated internet connectivity — designed for a fictional company.</li>
+          </ul>
+        </section>
+
+        <section id="skills" class="section">
+          <h2>Skills</h2>
+          <ul>
+            <li><strong>Languages:</strong> Python, Java, C++, C#, HTML/CSS, SQL</li>
+            <li><strong>Tools:</strong> Git, Postman, Linux, Oracle SQL Developer, Visual Studio Code</li>
+            <li><strong>Networking:</strong> IP Addressing, Subnetting, Routing (Cisco Packet Tracer)</li>
+            <li><strong>Other:</strong> Microsoft Office Suite, Canva</li>
+          </ul>
+        </section>
+      </div>
+
+      <footer>
+        <h2>Contact</h2>
+        <p>📞 082 812 7997 | 📧 <a href="mailto:jj.webber@outlook.com" style="color: white; text-decoration: none;">jj.webber@outlook.com</a></p>
+        <p>
+          <a href="https://www.linkedin.com/in/joshua-webber-a75873376" target="_blank" style="color: white; text-decoration: none; margin-right: 1rem;">🔗 LinkedIn</a>
+          <a href="https://github.com/Doctor1ven" target="_blank" style="color: white; text-decoration: none;">🐱 GitHub</a>
+        </p>
+      </footer>
     </section>
   </div>
-
-  <footer>
-    <h2 style="color: white;">Contact</h2>
-    <p style="color: white;">📞 082 812 7997 | 📧 jj.webber@outlook.com</p>
-  </footer>
 
   <script>
     function showTab(tabId) {
@@ -144,6 +253,9 @@
         section.classList.remove('active');
       });
       document.getElementById(tabId).classList.add('active');
+    }
+    function scrollToPortfolio() {
+      document.getElementById('mainContent').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>
