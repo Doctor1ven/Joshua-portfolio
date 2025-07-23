@@ -28,7 +28,7 @@
       scroll-snap-align: start;
     }
     #landing {
-  background-color: #7b7f65;
+  background-color: #9fa382;$1
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,11 +131,45 @@
       margin: 0.3rem 0;
     }
     @media (max-width: 600px) {
-      #landing {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+  #landing {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .landing-left h1 {
+    font-size: 2.5rem;
+  }
+  .landing-left .outlined h1 {
+    font-size: 2rem;
+    -webkit-text-stroke: 1px black;
+  }
+  .landing-left h2 {
+    font-size: 1.2rem;
+  }
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav button {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    min-width: 100%;
+  }
+  .container {
+    padding: 1rem;
+  }
+  .container > section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-top: 1rem;
+  }
+}
       .landing-left {
         align-items: center;
       }
@@ -163,9 +197,9 @@
           <h1>WEBBER</h1>
         </div>
         <h2>WELCOME TO MY PORTFOLIO</h2>
-        <button onclick="scrollToPortfolio()" class="nav-button">
-          CLICK HERE TO SEE MORE
-        </button>
+        <button onclick="scrollToPortfolio()" style="margin-top: 2rem; padding: 1rem 2rem; font-size: 1rem; border: none; border-radius: 40px; background-color: #7b7f65; color: white; font-weight: bold; cursor: pointer;">
+  CLICK HERE TO SEE MORE
+</button>
       </div>
     </section>
 
@@ -192,7 +226,7 @@
 <p>Beyond coursework, I've collaborated with fellow students on real-world projects that enhanced my skills in Java, Spring Boot, and network design. I'm also continuously learning through platforms like GitHub and YouTube, and I enjoy solving technical problems, building useful applications, and experimenting with new frameworks and tools. My goal is to contribute meaningfully to modern software systems and to ensure the security and efficiency of digital platforms.</p>
 <p>Whether working on a network simulation or developing a full-stack web app, I believe in staying adaptable, solution-oriented, and committed to growth in this fast-evolving tech landscape.</p>
             </div>
-            <img src="coverPhoto.JPG" alt="Joshua Webber" style="width: 150px; height: auto; border-radius: 8px;" />
+            <img src="coverPhoto.JPG" alt="Joshua Webber" style="width: 100%; max-width: 150px; height: auto; border-radius: 8px;" onerror="this.style.display='none'" />
           </div>
         </section>
 
