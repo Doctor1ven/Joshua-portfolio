@@ -5,16 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joshua Webber | Portfolio Book</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="main.js"></script>
+  <link rel="stylesheet" href="style.css?v=2" />
+  <script defer src="main.js?v=2"></script>
 </head>
 <body>
 
-<!-- Previous Button -->
-<button id="prev-btn">&lt;</button>
+<div class="book-shell">
+  <!-- Previous Button -->
+  <button id="prev-btn" aria-label="Previous page">&lt;</button>
 
-<!-- Book -->
-<div id="book" class="book">
+  <!-- Book -->
+  <div id="book" class="book">
 
   <!-- Page 1 -->
   <div id="p1" class="paper">
@@ -24,14 +25,14 @@
           <h1 class="book-title">
             <span class="filled">Joshua</span> <span class="outlined">Webber</span>
           </h1>
-          <p class="subtitle">Welcome to my portfolio</p>
+          <p class="subtitle">Graduate Software Developer</p>
           <img class="cover-img" src="./coverPhoto.PNG" alt="Joshua Webber">
         </div>
       </div>
     </div>
     <div class="back">
       <div id="b1" class="back-content">
-        <div class="toc">
+        <section class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
             <li>About Me</li>
@@ -41,7 +42,7 @@
             <li>Skills</li>
             <li>Contact</li>
           </ol>
-        </div>
+        </section>
       </div>
     </div>
   </div>
@@ -50,35 +51,35 @@
   <div id="p2" class="paper">
     <div class="front">
       <div id="f2" class="front-content">
-        <div class="about-section">
-          <h2>About Me</h2>
+        <section class="about-section" aria-labelledby="about-title">
+          <h2 id="about-title">About Me</h2>
           <p>
-            I'm Joshua Webber, an enthusiastic IT student passionate about technology, problem-solving, and continuous learning.
+            I am Joshua Webber, a Computer Science and Information Technology Honours student at North-West University with a completed Bachelor of Science in Information Technology.
           </p>
           <p>
-            I enjoy building efficient systems, exploring networking, and collaborating on full-stack development projects.
+            I enjoy building software that solves real-world problems and have experience developing full-stack applications, artificial intelligence solutions, networking projects and secure software systems.
           </p>
           <p>
-            My interests include software engineering, cybersecurity, and AI. I thrive in both individual and team environments, always looking to improve and innovate.
+            My interests include software engineering, artificial intelligence, machine learning, cybersecurity and backend development. I enjoy learning new technologies and continuously improving my technical skills.
           </p>
-        </div>
+        </section>
       </div>
     </div>
     <div class="back">
       <div id="b2" class="back-content">
-        <div class="education-section">
-          <h2>Education</h2>
-          <ul>
-            <li>
-              <strong>BSc in Information Technology</strong><br>
-              North West University (2022 – Present)
-            </li>
-            <li>
-              <strong>Matric</strong><br>
-              Emmanuel Private School (Graduated 2021)
-            </li>
-          </ul>
-        </div>
+        <section class="education-section" aria-labelledby="education-title">
+          <h2 id="education-title">Education</h2>
+          <div class="education-item">
+            <h3>Bachelor of Science (BSc) in Information Technology</h3>
+            <p>North-West University</p>
+            <p>Completed 2025</p>
+          </div>
+          <div class="education-item">
+            <h3>Bachelor of Science Honours in Computer Science and Information Technology</h3>
+            <p>North-West University</p>
+            <p>2026 – Present</p>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -87,38 +88,78 @@
   <div id="p3" class="paper">
     <div class="front">
       <div id="f3" class="front-content">
-        <div class="experience-section">
-          <h2>Experience</h2>
-          <p><strong>Sales Assistant – Lemon Garage (2021 – Present)</strong></p>
+        <section class="experience-section" aria-labelledby="experience-title">
+          <h2 id="experience-title">Experience</h2>
+          <p class="role"><strong>Sales Assistant (Part-Time) – Lemon Garage (2021 – Present)</strong></p>
           <ul>
-            <li>Prepare vehicles for sale (roadworthiness, cleanliness, fuelling)</li>
-            <li>Assist customers through the sales process</li>
-            <li>Maintain filing systems (digital + physical)</li>
-            <li>Run errands (fetch cars, documents, etc.)</li>
-            <li>Collaborate with the sales team to improve efficiency</li>
+            <li>Assisted customers throughout the vehicle purchasing process.</li>
+            <li>Prepared vehicles for sale and delivery.</li>
+            <li>Maintained digital and physical documentation.</li>
+            <li>Coordinated vehicle logistics and administrative tasks.</li>
+            <li>Worked closely with the sales team to improve operational efficiency.</li>
           </ul>
-        </div>
+        </section>
       </div>
     </div>
     <div class="back">
       <div id="b3" class="back-content">
-        <div class="projects-section">
-          <h2>Projects</h2>
-          <ul>
-            <li>
-              <strong><a href="https://github.com/Doctor1ven/Academix" target="_blank">Academix</a>:</strong>
-              A JavaFX desktop application with role-based access, encrypted login, and full academic management.
-            </li>
-            <li>
-              <strong><a href="https://github.com/clowiiza1/pawpal-backend" target="_blank">PawPal</a>:</strong>
-              A full-stack pet adoption app using React, Spring Boot, and AWS. Includes cloud deployment, RESTful APIs, and secure integration.
-            </li>
-            <li>
-              <strong><a href="https://github.com/clowiiza1/networkproject" target="_blank">Enterprise Network Simulation</a>:</strong>
-              Cisco Packet Tracer enterprise network design with VLANs, DHCP, ACLs, SSH, and internet simulation.
-            </li>
-          </ul>
-        </div>
+        <section class="projects-section" aria-labelledby="projects-title">
+          <h2 id="projects-title">Projects</h2>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Peg Solitaire AI</h3>
+              <a href="https://github.com/Doctor1ven/ITRI616-Mini-Project" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
+            </div>
+            <p>Developed a reinforcement learning agent using Q-Learning to solve the Peg Solitaire puzzle.</p>
+            <p>Implemented training visualization, replay functionality and performance tracking.</p>
+            <div class="badge-row">
+              <span class="badge">Python</span>
+              <span class="badge">Machine Learning</span>
+              <span class="badge">Q-Learning</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3>SocialWellness</h3>
+              <a href="https://github.com/Doctor1ven/Backend---SocialWellness" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
+            </div>
+            <p>Developed a full-stack wellbeing platform using React, Django and PostgreSQL.</p>
+            <p>Implemented REST APIs, JWT authentication and cloud deployment.</p>
+            <div class="badge-row">
+              <span class="badge">React</span>
+              <span class="badge">Django</span>
+              <span class="badge">PostgreSQL</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Academix</h3>
+              <a href="https://github.com/Doctor1ven/Academix" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
+            </div>
+            <p>JavaFX desktop academic management system featuring role-based authentication, encrypted login and database integration.</p>
+            <div class="badge-row">
+              <span class="badge">Java</span>
+              <span class="badge">JavaFX</span>
+              <span class="badge">SQL</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Enterprise Network Simulation</h3>
+              <a href="https://github.com/clowiiza1/networkproject" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
+            </div>
+            <p>Designed an enterprise Cisco Packet Tracer network implementing VLANs, routing, DHCP, ACLs, SSH and Internet connectivity.</p>
+            <div class="badge-row">
+              <span class="badge">Cisco</span>
+              <span class="badge">Networking</span>
+              <span class="badge">Security</span>
+            </div>
+          </article>
+        </section>
       </div>
     </div>
   </div>
@@ -127,35 +168,52 @@
   <div id="p4" class="paper">
     <div class="front">
       <div id="f4" class="front-content">
-        <div class="skills-section">
-          <h2>Skills</h2>
-          <ul>
-            <li><strong>Languages:</strong> Python, Java, C++, C#, HTML/CSS, SQL</li>
-            <li><strong>Tools:</strong> Git, Postman, Linux, Oracle SQL Developer, Visual Studio Code</li>
-            <li><strong>Networking:</strong> IP Addressing, Subnetting, Routing (Cisco Packet Tracer)</li>
-            <li><strong>Other:</strong> Microsoft Office Suite, Canva</li>
-          </ul>
-        </div>
+        <section class="skills-section" aria-labelledby="skills-title">
+          <h2 id="skills-title">Skills</h2>
+          <div class="skill-group">
+            <h3>Programming Languages</h3>
+            <p>Python, Java, C#, C++, JavaScript, SQL, HTML/CSS</p>
+          </div>
+          <div class="skill-group">
+            <h3>Frameworks &amp; Technologies</h3>
+            <p>React, Django, Spring Boot, REST APIs, JWT Authentication</p>
+          </div>
+          <div class="skill-group">
+            <h3>Databases</h3>
+            <p>PostgreSQL, MySQL, Oracle SQL, MongoDB</p>
+          </div>
+          <div class="skill-group">
+            <h3>Artificial Intelligence</h3>
+            <p>Machine Learning, Reinforcement Learning, Q-Learning, Neural Networks</p>
+          </div>
+          <div class="skill-group">
+            <h3>Networking &amp; Security</h3>
+            <p>Cisco Packet Tracer, VLANs, Routing, DHCP, ACLs, SSH, Cryptography</p>
+          </div>
+          <div class="skill-group">
+            <h3>Developer Tools</h3>
+            <p>Git, GitHub, Linux, Visual Studio Code, Postman</p>
+          </div>
+        </section>
       </div>
     </div>
     <div class="back">
       <div id="b4" class="back-content">
-        <div class="contact-section">
-          <h2>Contact</h2>
-          <p>📞 082 812 7997 | 📧 <a href="mailto:jj.webber@outlook.com">jj.webber@outlook.com</a></p>
-          <p>
-            <a href="https://www.linkedin.com/in/joshua-webber-a75873376" target="_blank">🔗 LinkedIn</a>
-            <a href="https://github.com/Doctor1ven" target="_blank">🐱 GitHub</a>
-          </p>
-        </div>
+        <section class="contact-section" aria-labelledby="contact-title">
+          <h2 id="contact-title">Contact</h2>
+          <p><strong>Phone:</strong> 082 812 7997</p>
+          <p><strong>Email:</strong> <a href="mailto:jj.webber@outlook.com">jj.webber@outlook.com</a></p>
+          <a class="contact-link" href="https://github.com/Doctor1ven" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+        </section>
       </div>
     </div>
   </div>
 
-</div>
+  </div>
 
-<!-- Next Button -->
-<button id="next-btn">&gt;</button>
+  <!-- Next Button -->
+  <button id="next-btn" aria-label="Next page">&gt;</button>
+</div>
 
 </body>
 </html>
